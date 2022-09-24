@@ -7,12 +7,12 @@ import 'package:intl/intl.dart';
 import '../shared/components/components.dart';
 
 class TodoApp extends StatelessWidget {
-  var scaffoldKey = GlobalKey<ScaffoldState>();
-  var formKey = GlobalKey<FormState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final formKey = GlobalKey<FormState>();
 
-  TextEditingController titleController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
-  TextEditingController timeController = TextEditingController();
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
+  final TextEditingController timeController = TextEditingController();
 
   TodoApp({Key? key}) : super(key: key);
 
@@ -41,9 +41,10 @@ class TodoApp extends StatelessWidget {
                 if (cubit.isBottomSheetOpened) {
                   if (formKey.currentState!.validate()) {
                     cubit.insertToDatabase(
-                        title: titleController.text,
-                        time: timeController.text,
-                        date: dateController.text);
+                      title: titleController.text,
+                      time: timeController.text,
+                      date: dateController.text,
+                    );
                   }
                 } else {
                   scaffoldKey.currentState
@@ -90,7 +91,7 @@ class TodoApp extends StatelessWidget {
                                     },
                                     label: 'Task Date',
                                     controller: dateController,
-                                    keyboardType: TextInputType.text,
+                                    keyboardType: TextInputType.datetime,
                                     validator: (value) {
                                       if (value.isEmpty) {
                                         return 'Date Must Not Be Empty';
@@ -116,7 +117,7 @@ class TodoApp extends StatelessWidget {
                                     prefixIcon: Icons.watch_later_outlined,
                                     label: 'Task Time',
                                     controller: timeController,
-                                    keyboardType: TextInputType.text,
+                                    keyboardType: TextInputType.datetime,
                                     validator: (value) {
                                       if (value.isEmpty) {
                                         return 'Time Must Not Be Empty';

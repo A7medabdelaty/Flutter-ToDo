@@ -22,13 +22,9 @@ class AppCubit extends Cubit<AppStates> {
   ];
   List<String> titles = ['Tasks', 'Done Tasks', 'Archived Tasks'];
 
-  //change opened screen form bottom nav bar
-  //index 0 => new tasks screen
-  //index 1 => done tasks screen
-  //index 2 => archived tasks screen
   void changeIndex(index) {
     currentIndex = index;
-    emit(ChangeBottomNavBar());
+    emit(ChangeBottomNavBarState());
   }
 
   Database? database;

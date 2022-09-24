@@ -69,7 +69,7 @@ Widget taskBuildItem(Map task, context) {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 40,
+            radius: 35,
             child: Text('${task['time']}'),
           ),
           const SizedBox(
@@ -86,7 +86,7 @@ Widget taskBuildItem(Map task, context) {
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 7,
                 ),
                 Text('${task['date']}'),
               ],
